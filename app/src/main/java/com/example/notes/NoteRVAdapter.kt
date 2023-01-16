@@ -20,13 +20,19 @@ class NoteRVAdapter(private val context: Context, private val listener: INotesRV
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val viewHolder =
             NoteViewHolder(LayoutInflater.from(context).inflate(R.layout.item, parent, false))
-        listener.onItemClicked(allNotes[viewHolder.adapterPosition])
+
         return viewHolder
+
+
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val currentNote = allNotes[position]
         holder.textView.text = currentNote.text
+        holder.deleteButton.setOnClickListener {
+            listener.onItemClicked(allNotes.get(position))
+        }
+
     }
 
     override fun getItemCount(): Int {

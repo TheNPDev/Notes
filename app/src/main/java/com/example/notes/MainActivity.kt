@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), NoteRVAdapter.INotesRVAdapter {
 
     override fun onItemClicked(note: Note) {
         viewModel.deleteNote(note)
-        Toast.makeText(this,"$(note.text) Deleted",Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"${note.text} Deleted",Toast.LENGTH_LONG).show()
     }
 
     fun submitData(view: View) {
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), NoteRVAdapter.INotesRVAdapter {
         if(notetext.isNotEmpty())
         {
             viewModel.insertNote(Note(notetext))
-            Toast.makeText(this,"$(note.text) Inserted",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"${notetext} Inserted",Toast.LENGTH_LONG).show()
         }
     }
 
